@@ -1,0 +1,84 @@
+package jmasters.exercises;
+
+import java.util.ArrayList;
+
+public class Heap<T> implements PriorityQueue<T>
+{
+    //Heap is 1 indexed --- because the doubling /halving formulas
+    //for children and parents don't work unless it is 1 indexed.
+    //So you have a choice of implementations...
+    //You can adjust for the indexing difference with every access....
+    //Or you can make element 0 a dummy element.
+    ArrayList heapStorage=new ArrayList();
+ 
+    boolean isEmpty();
+    void insert(T value);
+    T peekMinimum();
+    T popMinimum();          
+}
+
+//
+//
+BALANCED TREES--advanced trees. -- balanced trees...
+--------------------------------------------------
+Hashing
+--------------------------------------------------
+Skiplists
+--------------------------------------------------
+Graph Theory.
+
+----
+Architecture...I want to finish shifting and masking....
+
+--Algorithmics area you are interested in--signal processing (for audio), 
+  graphical algorithms, data compression....algorithms
+
+  Take on one small-mid sized project....  Java GUI --  You need bigger project experience.
+
+"&" "|" "^" "~" "<<" ">>" ">>>"
+
+&& || ! (boolean operators)
+& | ~  (bitwise operators)
+
+
+
+
+
+
+
+//
+ArrayList ----- unordered data....
+ArrayList -- in place sort---- tricky..
+
+walk through the array list, and insert each element onto a maxHeap stored in the beginning of the
+ArrayList.
+
+counter -- how big your heap -- same value as the current indexed item your adding to the heap
+
+
+for(i=0; i<data.size; ++i)
+{
+    swimupHeap(data, i);    
+}
+
+---asortingexample---
+   |asortingexample
+   a|sortingexample
+   sa|ortingexample
+   sao|rtingexample   
+   tsoarin|gexample
+   tsogrinae|xample
+   xtogsinaera|mple
+   xtogsmnaerai|ple
+   xtpgsonaeraimle|
+   tspgronaeeaiml|x
+   srpglonaeeaim|tx
+   rmpglonaeeai|stx
+   impglonaeea|rstx
+
+            r
+        m      p
+     g    l   o   n
+    a e  e a i   
+
+    O(N log N) --- Best case and worst case.
