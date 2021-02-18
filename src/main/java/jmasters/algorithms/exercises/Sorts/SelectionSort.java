@@ -1,4 +1,4 @@
-package jmasters.algorithms.exercises;
+package jmasters.algorithms.exercises.Sorts;
 import javax.swing.JFrame;
 
 import sdossey.algorithms.datasets.RandomData;
