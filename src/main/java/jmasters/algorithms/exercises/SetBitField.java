@@ -17,10 +17,31 @@ public class SetBitField {
         }
         return 0;
     }
+
+    public static int addMethod(int a, int b)
+    {
+        // XOR a and b
+        int c=a^b;
+
+        // while ANDing a and b does not equal 0
+        while((a&b) != 0)
+        {
+            // AND a and b and SHIFT << 1
+            b=(a & b)<<1;
+            
+            a=c;
+
+            //c = a (which is now c) XOR b
+            c=a^b;
+        }
+        return c;
+    }
+
     public static void main(String[] args) {
         // 93 = 0101 1101
         //10 = 1010
         // 173 = 1111 1101
-        setBitField(93, 4, 4, 10);
+        // setBitField(93, 4, 4, 10);
+        System.out.println(addMethod(15, 305));
     }
 }
