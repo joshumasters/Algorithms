@@ -92,7 +92,7 @@ public class SkipLists<T> {
         nodeScan = head;
     }
 
-    public T get(int index) throws Exception {
+    public T get(int index) {
         if (index >= size) {
             throw new IndexOutOfBoundsException("Index is outside of valid range");
         }
@@ -114,7 +114,7 @@ public class SkipLists<T> {
         return null;
     }
 
-    public T set(int index, T dataToChange) throws Exception {
+    public T set(int index, T dataToChange) {
         if (index >= size) {
             throw new IndexOutOfBoundsException("Index is outside of valid range");
         }
@@ -141,7 +141,7 @@ public class SkipLists<T> {
         return size;
     }
 
-    public T remove(int index) throws Exception {
+    public T remove(int index) {
         if (index >= size) {
             throw new IndexOutOfBoundsException("Index is outside of valid range");
         }
@@ -192,6 +192,7 @@ public class SkipLists<T> {
         list.get(4);
         list.set(4, 543);
         list.get(4);
+        list.scanList();
 
     }
 }
