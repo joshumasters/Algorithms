@@ -114,6 +114,29 @@ public class SkipLists<T> {
         return null;
     }
 
+    public T set(int index, T dataToChange) throws Exception {
+        if (index >= size) {
+            throw new IndexOutOfBoundsException("Index is outside of valid range");
+        }
+        int skipCounts = 0;
+        for (int listLevel = head.links.size() - 1; listLevel >= 0; listLevel--) {
+            while (skipCounts + nodeScan.skipCounts.get(listLevel) < index + 1) {
+                skipCounts += nodeScan.skipCounts.get(listLevel);
+                nodeScan = nodeScan.links.get(listLevel);
+            }
+            if (skipCounts + nodeScan.skipCounts.get(listLevel) == index + 1) {
+                SkipListNode<T> nodeToReturn = nodeScan.links.get(listLevel);
+                System.out.println("Replaced " + nodeToReturn.data + " with " + dataToChange);
+                nodeToReturn.data = dataToChange;
+                nodeScan = head;
+                return nodeToReturn.data;
+            }
+        }
+
+        nodeScan = head;
+        return null;
+    }
+
     public int size() {
         return size;
     }
@@ -166,6 +189,8 @@ public class SkipLists<T> {
         list.scanList();
         list.remove(0);
         list.scanList();
+        list.get(4);
+        list.set(4, 543);
         list.get(4);
 
     }
